@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOPШКІДНИК — ФОП Чернобай В.О.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #FFEA00;
+            --red: #E30613;
+            --black: #1A1A1A;
+            --white: #FFFFFF;
+            --gray: #f4f4f4;
+            --dark-red: #9e040d;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
+
+        /* Навігація */
+        nav {
+            background: var(--black);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 3px solid var(--red);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--yellow); }
+
+        /* Шапка */
+        header {
+            background-color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--red);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            width: 150px;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+
+        .header-info { text-align: left; }
+
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .logo-stop { color: var(--red); }
+        
+        .slogan {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            font-weight: bold;
+            margin-top: 5px;
+            color: var(--black);
+        }
+
+        .slogan-highlight { color: var(--red); }
+
+        /* Секції */
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* Картки послуг */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            padding: 25px;
+            background: var(--gray);
+            border-left: 5px solid var(--red);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h3 { margin-bottom: 10px; color: var(--black); }
+
+        /* НОВА СЕКЦІЯ: Приватним клієнтам */
+        .private-section {
+            background: ;var(--gray);
+            border: 4px solid var(--black);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 20px;
+            box-shadow: 10px 10px 0px var(--black);
+        }
+        
+        .private-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .private-item {
+            background: var(--white);
+            padding: 20px;
+            border: 2px solid var(--black);
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .private-item span {
+            color: var(--red);
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Блок бізнесу (HACCP) */
+        .haccp-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-right: 8px solid var(--red);
+        }
+
+        .haccp-box strong { color: var(--yellow); }
+
+        /* Клієнти */
+        .client-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .client-tag {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 8px 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 1px solid var(--black);
+            font-size: 0.9rem;
+        }
+
+        /* Футер */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 5px solid var(--yellow);
+        }
+
+        .contact-phone {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        
+        .contact-phone:hover { color: var(--white); transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .header-info { text-align: center; }
+            .contact-phone { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">Про нас</a>
+    <a href="#services">Послуги</a>
+    <a href="#private">Приватним особам</a>
+    <a href="#haccp">Бізнесу (HACCP)</a>
+    <a href="#clients">Партнери</a>
+    <a href="#contacts">Контакти</a>
+</nav>
+
+<header>
+    <div class="header-container">
+        <img src="logo.jpg" alt="Логотип STOPШКІДНИК" class="logo-img">
+        <div class="header-info">
+            <h1 class="logo-text"><span class="logo-stop">STOP</span>ШКІДНИК</h1>
+            <p class="slogan">Хочеш позбутись від шкідників? <span class="slogan-highlight">Звернись до фахівців!!!!</span></p>
+        </div>
+    </div>
+</header>
+
+<section id="about">
+    <h2 class="section-title">ФОП Чернобай В.О.</h2>
+    <p style="text-align: center; font-size: 1.2rem; max-width: 900px; margin: 0 auto;">
+        Ми професійно займаємося контролем шкідників у Сумах та області. Надаємо повний комплекс послуг з дезінфекції, дезінсекції та дератизації для житлових будинків, складів та великих підприємств. <strong>Весь пакет документів на виконану роботу надається.</strong>
+    </p>
+</section>
+
+<section id="private">
+    <div class="private-section">
+        <h2 style="color: var(--black); text-align: center; text-transform: uppercase; font-size: 2rem;">Послуги для приватних осіб</h2>
+        <p style="text-align: center; margin-top: 10px; font-weight: bold;">Швидка допомога для вашого дому та квартири!</p>
+        
+        <div class="private-grid">
+            <div class="private-item">
+                <span>01.</span>
+                Знищення тарганів та прусаків (без запаху та плям)
+            </div>
+            <div class="private-item">
+                <span>02.</span>
+                Виведення постільних клопів та бліх
+            </div>
+            <div class="private-item">
+                <span>03.</span>
+                Боротьба з гризунами у приватних будинках та гаражах
+            </div>
+            <div class="private-item">
+                <span>04.</span>
+                Дезінфекція плісняви та грибка у підвалах
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+             <p style="background: var(--red); color: white; display: inline-block; padding: 10px 20px; border-radius: 50px; font-weight: bold;">100% ГАРАНТІЯ РЕЗУЛЬТАТУ</p>
+        </div>
+    </div>
+</section>
+
+<section id="services" style="background: var(--gray);">
+    <h2 class="section-title">Наші послуги</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Дезінсекція</h3>
+            <p>Знищення тарганів, мух, бліх, клопів та інших комах. Використовуємо сертифіковані препарати, безпечні для людей та тварин.</p>
+        </div>
+        <div class="card">
+            <h3>Дератизація</h3>
+            <p>Ефективна боротьба з гризунами (миші, щури). Встановлюємо системи моніторингу та професійні приманки.</p>
+        </div>
+        <div class="card">
+            <h3>Фумігація</h3>
+            <p>Знезараження зерна та складських приміщень аерозольним методом. Гарантуємо повне очищення від шкідників запасів.</p>
+        </div>
+        <div class="card">
+            <h3>Дезінфекція</h3>
+            <p>Обробка приміщень, автотранспорту та ж/д вагонів. Знищення вірусів, бактерій та грибків з наданням актів.</p>
+        </div>
+    </div>
+</section>
+
+<section id="haccp">
+    <h2 class="section-title">Pest Control для бізнесу</h2>
+    <div class="haccp-box">
+        <h3>Відповідність стандартам НАССР (ISO 22000)</h3>
+        <p style="margin: 15px 0;">Надаємо послуги з <strong>pest-control</strong> відповідно до статті 49 Закону України №771 "Про основні принципи та вимоги до безпечності та якості харчових продуктів" та Наказу Мінагрополітики №590.</p>
+        <ul style="margin-left: 20px;">
+            <li>Розробка програми моніторингу шкідників.</li>
+            <li>Ведення моніторингових журналів для аудитів.</li>
+            <li>Схеми розміщення контрольних точок (пасток).</li>
+            <li>Повний юридичний супровід та акти виконаних робіт.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="clients">
+    <h2 class="section-title">Нам довіряють</h2>
+    <div class="client-list">
+        <span class="client-tag">ТОВ «Гуала Кложерс»</span>
+        <span class="client-tag">ТОВ «Птахопродсервіс»</span>
+        <span class="client-tag">ПП «Натур Світ»</span>
+        <span class="client-tag">ТМ «Оберег»</span>
+        <span class="client-tag">Мережа «НАШ МАРКЕТ»</span>
+        <span class="client-tag">Мережа «АМБАР-Маркет»</span>
+        <span class="client-tag">Пивоварня «Солод»</span>
+        <span class="client-tag">Мережа «Монамі»</span>
+    </div>
+</section>
+
+<footer id="contacts">
+    <h2 style="color: var(--yellow);">Потрібна допомога фахівців?</h2>
+    <p style="margin-top: 10px;">Телефонуйте зараз для консультації:</p>
+    <a href="tel:0992727829" class="contact-phone">099 272 78 29</a>
+    <p>Email: <a href="mailto:chernobay88@ukr.net" style="color: white;">chernobay88@ukr.net</a></p>
+    <div style="margin
