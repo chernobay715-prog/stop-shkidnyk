@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stop-shkidnyk.netlify.app/sitemap.xml
